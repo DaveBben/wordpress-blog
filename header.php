@@ -25,13 +25,24 @@ $container = get_theme_mod( 'understrap_container_type' );
 <body <?php body_class(); ?>>
 
 <div class="site" id="page">
+	<div class="container">
+	<?php if ( is_front_page() && is_home() ) : ?>
+	<div class="title__banner">
+		<h1 class="site__title"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+		<h5 class="sub__banner"><?php echo date("l, M j, Y")?> | Yo guys</h5>    
+		</div>
+		
+	<?php else : ?>
 
+	<?php endif; ?>
+</div>
 	<!-- ******************* The Navbar Area ******************* -->
 	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+
+		<nav class="navbar navbar-expand-md navbar-light">
 
 		<?php if ( 'container' == $container ) : ?>
 			<div class="container" >
@@ -45,8 +56,19 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 
 						<?php else : ?>
+							<?php if (is_single()) : 
+								$category = get_the_category();
+								$firstCategory = $category[0]->cat_name;
+								?>
+							<div class="container-navbar-brand-logo">
+							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a> <span class="category">| <a href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ) ?>"><?php echo $firstCategory ?></a></span>
+							</div>
 
+							<?php else :?>
 							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+
+							<?php endif; ?>
+
 
 						<?php endif; ?>
 
@@ -55,6 +77,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						the_custom_logo();
 					} ?><!-- end custom logo -->
 
+<?php if (!is_single()) : ?>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -72,6 +95,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
+					<?php endif; ?>
 			<?php if ( 'container' == $container ) : ?>
 			</div><!-- .container -->
 			<?php endif; ?>
