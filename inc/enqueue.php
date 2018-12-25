@@ -28,6 +28,16 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+		wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', null, null, true );
+		wp_enqueue_script('slick');
+
+		wp_register_style( 'slickstyle', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css' );
+		wp_enqueue_style('slickstyle');
+
+		
+		wp_register_style('fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Sans+Pro:700');
+		wp_enqueue_style('fonts');
 	}
 } // endif function_exists( 'understrap_scripts' ).
 

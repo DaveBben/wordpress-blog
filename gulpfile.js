@@ -233,7 +233,10 @@ gulp.task("clean-vendor-assets", function() {
 });
 
 gulp.task("build", ['dist'], function() {
-	exec("Powershell.exe -File  copy.ps1", function(err, stdout, stderr) {
+	exec("Powershell.exe -ExecutionPolicy ByPass  -File  ./copy.ps1", function (err, stdout, stderr) {
+		if (err) { console.log(err) }
+		if (stderr) { console.log(stderr) } 
+		
 	});
 });
 

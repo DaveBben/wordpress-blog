@@ -38,3 +38,42 @@
 		color: $black;
 	}
 }
+
+.entry-title.home,
+.entry-title.home a {
+	font-size: 1.5rem;
+	color: $black;
+	padding-top: 20px;
+}
+
+time,
+.author a {
+	color: #b60e63;
+}
+
+@for $index from 1 through 6 {
+	h#{$index} {
+		font-family: "Source Sans Pro", sans-serif;
+		font-weight: 700;
+		color: $black;
+	}
+}
+
+.entry-content p,
+.entry-content {
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.1em;
+	line-height: 33px;
+}
+
+code {
+	background: rgba(0,0,0,.05);
+    padding: 3px 4px;
+	margin: 0 2px;
+	font-family: 'Courier New', Courier, monospace;
+	color: $code;
+}
+
+.entry-content a {
+	color: #b60e63;
+}

@@ -25,7 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<main class="site-main" id="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
-
+					<div class="col-md-9 col-sm-12 mx-auto">
 					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
 
 					<?php understrap_post_nav(); ?>
@@ -36,13 +36,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 						comments_template();
 					endif;
 					?>
+					</div>
 
 				<?php endwhile; // end of the loop. ?>
 
 			</main><!-- #main -->
 
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+		
 
 		</div><!-- .row -->
 

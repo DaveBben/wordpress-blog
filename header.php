@@ -53,7 +53,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 						<?php if ( is_front_page() && is_home() ) : ?>
 
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+					
 
 						<?php else : ?>
 							<?php if (is_single()) : 
@@ -65,7 +65,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							</div>
 
 							<?php else :?>
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+						
 
 							<?php endif; ?>
 
@@ -83,6 +83,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				</button>
 
 				<!-- The WordPress Menu goes here -->
+				<!-- https://kenwheeler.github.io/slick/  -->
 				<?php wp_nav_menu(
 					array(
 						'theme_location'  => 'primary',
