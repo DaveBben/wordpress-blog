@@ -77,3 +77,8 @@ code {
 .entry-content a {
 	color: #b60e63;
 }
+
+.form-control:focus{
+	border-color: #b60e63;
+	box-shadow: 0 0 0 0.2rem rgba(199, 18, 18, 0.25);
+}

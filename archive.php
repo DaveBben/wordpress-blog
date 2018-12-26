@@ -18,26 +18,31 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="archive-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">	<header class="page-header">
+						<?php
+						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						the_archive_description( '<div class="taxonomy-description">', '</div>' );
+						?>
+			</header><!-- .page-header -->
+			<hr/>
 
 		<div class="row">
 
 			<!-- Do the left sidebar check -->
 			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
-			<main class="site-main" id="main">
+		
+
+			<div class="row">
 
 				<?php if ( have_posts() ) : ?>
 
-					<header class="page-header">
-						<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="taxonomy-description">', '</div>' );
-						?>
-					</header><!-- .page-header -->
+		
 
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>
+
+					<div class="col-md-4 col-sm-12">
 
 						<?php
 
@@ -49,6 +54,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 						get_template_part( 'loop-templates/content', get_post_format() );
 						?>
 
+						</div>
+
 					<?php endwhile; ?>
 
 				<?php else : ?>
@@ -57,13 +64,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<?php endif; ?>
 
-			</main><!-- #main -->
+			</div><!-- #main -->
 
 			<!-- The pagination component -->
 			<?php understrap_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+
 
 		</div> <!-- .row -->
 

@@ -29,6 +29,12 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+		wp_enqueue_style( 'prism-style', get_stylesheet_directory_uri() . '/css/prism.css');
+		wp_enqueue_style('prism-style');
+
+		wp_register_script( 'prism',  get_template_directory_uri() . '/js/prism.js', null, null, true );
+		wp_enqueue_script('prism');
+
 		wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', null, null, true );
 		wp_enqueue_script('slick');
 
