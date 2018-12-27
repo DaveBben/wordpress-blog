@@ -29,17 +29,27 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+		wp_register_script( 'search',  get_template_directory_uri() . '/js/search.js', null, null, true );
+		wp_enqueue_script( 'search');
+
+		wp_register_script( 'defer',  get_template_directory_uri() . '/js/defer-ads.js', null, null, true );
+		wp_enqueue_script( 'defer');
+
 		wp_enqueue_style( 'prism-style', get_stylesheet_directory_uri() . '/css/prism.css');
 		wp_enqueue_style('prism-style');
 
 		wp_register_script( 'prism',  get_template_directory_uri() . '/js/prism.js', null, null, true );
 		wp_enqueue_script('prism');
 
-		wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', null, null, true );
-		wp_enqueue_script('slick');
+		// wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', null, null, true );
+		// wp_enqueue_script('slick');
 
-		wp_register_style( 'slickstyle', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css' );
-		wp_enqueue_style('slickstyle');
+		// wp_register_style( 'slickstyle', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css' );
+		// wp_enqueue_style('slickstyle');
+
+		wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+		wp_enqueue_style('fontawesome');
+
 
 		
 		wp_register_style('fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Sans+Pro:700');

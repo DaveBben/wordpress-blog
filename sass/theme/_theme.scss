@@ -78,7 +78,36 @@ code {
 	color: #b60e63;
 }
 
-.form-control:focus{
-	border-color: #b60e63;
-	box-shadow: 0 0 0 0.2rem rgba(199, 18, 18, 0.25);
+
+.search-control {
+	display: inline-block;
+    vertical-align: middle;
+    width: 0px !important;
+    height: 37px;
+    border: none;
+    -webkit-transition: width .2s,padding .2s;
+    transition: width .2s,padding .2s;
+    padding-left: 1px;
+	padding-right: 0;
+	visibility: hidden;
+
+	&:focus{
+		border: none;
+		box-shadow: none;
+	}
+
+	&.show{
+		visibility: visible;
+		width: 137px !important;
+	}
 }
+
+.input-group .fa-search{
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-right: 5px;
+	color: #495057;
+}
+
+

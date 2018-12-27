@@ -24,7 +24,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</header><!-- .entry-header -->
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+	<?php $yt = get_post_meta(get_the_ID(), 'my_meta_box_text', true);
+				if (isset($yt) && $yt !== '') { ?>
+					<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="" width="300" height="150" allowfullscreen="allowfullscreen" data-src="//www.youtube.com/embed/<?php echo $yt ?> "></iframe></div>
+					<?php 
+				}
+				else{
+					 echo get_the_post_thumbnail( $post->ID, 'large' ); 
+					
+				}
+			?>
+<hr>
+	<!-- Responsive Link Ads -->
+		<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-6594501022141871"
+		data-ad-slot="6223025728"
+		data-ad-format="link"></ins>
+	<hr>
+
 
 	<div class="entry-content">
 

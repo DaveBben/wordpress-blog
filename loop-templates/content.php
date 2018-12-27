@@ -17,7 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<header class="entry-header">
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+	
+<?php
+	if ( has_post_thumbnail() ) : 
+    ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php 
+      echo get_the_post_thumbnail( $post->ID, 'large' ); 
+    ?></a><?php 
+endif; ?>
 
 		<?php
 		the_title(

@@ -19,6 +19,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<?php wp_head(); ?>
 	<?php wp_head(); ?>
 </head>
 
@@ -68,7 +74,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							</div>
 
 							<?php else :?>
-						
+							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 
 							<?php endif; ?>
 
@@ -83,11 +89,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 <?php if (!is_single()) : ?>
 
 			
-<?php get_search_form(); ?> 
 
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+
+
 
 				<!-- The WordPress Menu goes here -->
 				<!-- https://kenwheeler.github.io/slick/  -->
@@ -103,9 +107,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
+
+<?php get_search_form(); ?> 
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 					<?php endif; ?>
 			<?php if ( 'container' == $container ) : ?>
-	
+			
 	 
 			</div><!-- .container -->
 			<?php endif; ?>
